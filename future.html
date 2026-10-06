@@ -13,70 +13,136 @@
 
     body {
         margin: 0;
-        background: #fdf5ef;
+        background:
+            radial-gradient(circle at 15% 10%, #f6dce0 0, transparent 27%),
+            radial-gradient(circle at 85% 90%, #f1d5ce 0, transparent 30%),
+            #fdf5ef;
         color: #5b3b35;
         font-family: Georgia, "Times New Roman", serif;
-        text-align: center;
     }
 
     .page {
         max-width: 430px;
         min-height: 100vh;
         margin: auto;
-        padding: 70px 28px;
+        padding: 55px 22px;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
     }
 
     .small {
-        font-size: 12px;
-        letter-spacing: 3px;
+        font-size: 11px;
+        letter-spacing: 4px;
         text-transform: uppercase;
         color: #9b6f68;
-        margin-bottom: 22px;
+        margin-bottom: 18px;
+    }
+
+    .line {
+        width: 55px;
+        height: 1px;
+        background: #cfa09a;
+        margin: 0 auto 22px;
     }
 
     h1 {
-        font-size: 40px;
+        font-size: 45px;
         font-weight: normal;
+        font-style: italic;
         color: #573630;
-        margin: 0 0 15px;
+        margin: 0 0 13px;
     }
 
-    .heart {
+    .subtitle {
+        font-size: 15px;
+        color: #9a716a;
+        line-height: 1.6;
+    }
+
+    .decor {
         color: #c98989;
-        font-size: 24px;
-        margin-bottom: 30px;
+        font-size: 20px;
+        margin-top: 16px;
     }
 
     .letter {
         background: #fffaf6;
-        padding: 30px 24px;
-        border-radius: 18px;
-        box-shadow: 0 8px 30px rgba(91,59,53,0.08);
-        text-align: left;
+        border: 1px solid #e0c0b9;
+        padding: 32px 25px;
+        position: relative;
+        box-shadow: 0 12px 35px rgba(91,59,53,0.10);
+    }
+
+    .letter::before {
+        content: "♡";
+        position: absolute;
+        top: 14px;
+        right: 17px;
+        color: #d7aaa5;
+        font-size: 15px;
+    }
+
+    .letter::after {
+        content: "✦";
+        position: absolute;
+        bottom: 14px;
+        left: 17px;
+        color: #d7aaa5;
+        font-size: 13px;
     }
 
     p {
-        font-size: 17px;
-        line-height: 1.8;
+        font-size: 16.5px;
+        line-height: 1.85;
         color: #76534c;
         margin: 0 0 21px;
+    }
+
+    .dream {
+        text-align: center;
+        padding: 23px 12px;
+        margin: 25px 0;
+        border-top: 1px solid #e3c7c0;
+        border-bottom: 1px solid #e3c7c0;
+        color: #704b45;
+        font-size: 18px;
+        font-style: italic;
+        line-height: 1.75;
     }
 
     .ending {
         text-align: center;
         margin-top: 30px;
+        margin-bottom: 5px;
+        color: #704b45;
         font-style: italic;
+    }
+
+    .button-wrap {
+        text-align: center;
+        margin-top: 32px;
     }
 
     .button {
         display: inline-block;
-        margin-top: 32px;
         padding: 15px 30px;
         background: #e8c3c0;
         color: #573630;
         text-decoration: none;
+        border: 1px solid #c99590;
         border-radius: 30px;
-        font-size: 16px;
+        font-size: 15px;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 25px;
+        color: #b0847d;
+        font-size: 11px;
+        letter-spacing: 2px;
     }
 </style>
 </head>
@@ -85,11 +151,21 @@
 
 <div class="page">
 
-    <div class="small">Chapter Three</div>
+    <div class="header">
 
-    <h1>One day...</h1>
+        <div class="small">Chapter Three</div>
 
-    <div class="heart">♡</div>
+        <div class="line"></div>
+
+        <h1>One day...</h1>
+
+        <div class="subtitle">
+            When the distance is finally just a story we tell.
+        </div>
+
+        <div class="decor">♡ &nbsp; ✦ &nbsp; ♡</div>
+
+    </div>
 
     <div class="letter">
 
@@ -98,16 +174,20 @@
         </p>
 
         <p>
-            I want the boring days with you. The sleepy mornings, the
-            random grocery runs, the arguments about absolutely nothing,
-            sitting next to each other without having to say anything,
-            and all the tiny moments that we currently have to miss.
+            I want the boring days with you.
         </p>
 
         <p>
-            I want to be able to look for you in the room instead of
-            looking at my phone to see when you'll call.
+            The sleepy mornings, the random grocery runs, the arguments
+            about absolutely nothing, sitting next to each other without
+            having to say anything, and all the tiny moments that we
+            currently have to miss.
         </p>
+
+        <div class="dream">
+            I want to be able to look for you in the room<br>
+            instead of looking at my phone to see when you'll call.
+        </div>
 
         <p>
             I want Cuppy and Momo to stop complaining about the
@@ -134,18 +214,35 @@
         </p>
 
         <p>
-            But I know who I want beside me while we figure it out.
+            And maybe that's what makes it exciting.
+        </p>
+
+        <p>
+            There will probably be difficult days. There will be things
+            we disagree about, things we have to learn, and things we
+            have to figure out along the way.
+        </p>
+
+        <p>
+            But I know who I want beside me while we figure it all out.
         </p>
 
         <p class="ending">
-            You. Always you. ♡
+            You.<br>
+            Always you. ♡
         </p>
 
     </div>
 
-    <a href="letter.html" class="button">
-        There's one more thing...
-    </a>
+    <div class="button-wrap">
+        <a href="letter.html" class="button">
+            There's one more thing...
+        </a>
+    </div>
+
+    <div class="footer">
+        chapter three · someday
+    </div>
 
 </div>
 
