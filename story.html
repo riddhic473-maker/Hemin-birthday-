@@ -13,59 +13,141 @@
 
     body {
         margin: 0;
-        background: #fdf5ef;
+        background:
+            radial-gradient(circle at 10% 10%, #f6dfe0 0, transparent 25%),
+            radial-gradient(circle at 90% 90%, #f2d7d0 0, transparent 28%),
+            #fdf5ef;
         color: #5b3b35;
         font-family: Georgia, "Times New Roman", serif;
-        text-align: center;
     }
 
     .page {
         max-width: 430px;
         min-height: 100vh;
         margin: auto;
-        padding: 70px 28px;
+        padding: 55px 22px;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
     }
 
     .small {
-        font-size: 12px;
-        letter-spacing: 3px;
+        font-size: 11px;
+        letter-spacing: 4px;
         text-transform: uppercase;
         color: #9b6f68;
-        margin-bottom: 22px;
+        margin-bottom: 18px;
+    }
+
+    .line {
+        width: 55px;
+        height: 1px;
+        background: #cfa09a;
+        margin: 0 auto 22px;
     }
 
     h1 {
-        font-size: 38px;
+        font-size: 40px;
         font-weight: normal;
-        margin: 0 0 30px;
         color: #573630;
+        margin: 0 0 12px;
     }
 
-    .heart {
+    .subtitle {
+        font-size: 15px;
+        font-style: italic;
+        color: #9a716a;
+    }
+
+    .decor {
         color: #c98989;
-        font-size: 25px;
-        margin-bottom: 30px;
+        font-size: 20px;
+        margin-top: 15px;
     }
 
     .letter {
         background: #fffaf6;
-        padding: 30px 24px;
-        border-radius: 18px;
-        box-shadow: 0 8px 30px rgba(91,59,53,0.08);
-        text-align: left;
+        border: 1px solid #e0c0b9;
+        padding: 32px 25px;
+        position: relative;
+        box-shadow: 0 12px 35px rgba(91,59,53,0.10);
+    }
+
+    .letter::before {
+        content: "♡";
+        position: absolute;
+        top: 13px;
+        right: 17px;
+        color: #d7aaa5;
+        font-size: 15px;
+    }
+
+    .letter::after {
+        content: "✦";
+        position: absolute;
+        bottom: 13px;
+        left: 17px;
+        color: #d7aaa5;
+        font-size: 13px;
     }
 
     p {
-        font-size: 17px;
-        line-height: 1.8;
+        font-size: 16.5px;
+        line-height: 1.85;
         color: #76534c;
-        margin: 0 0 20px;
+        margin: 0 0 21px;
+    }
+
+    .opening {
+        font-size: 20px;
+        color: #573630;
+        font-style: italic;
+    }
+
+    .highlight {
+        text-align: center;
+        padding: 22px 10px;
+        margin: 25px 0;
+        border-top: 1px solid #e3c7c0;
+        border-bottom: 1px solid #e3c7c0;
+        color: #805a54;
+        font-style: italic;
+        font-size: 17px;
+        line-height: 1.7;
     }
 
     .ending {
         text-align: center;
-        margin-top: 30px;
+        margin-top: 28px;
+        margin-bottom: 5px;
         font-style: italic;
+        color: #704b45;
+    }
+
+    .button-wrap {
+        text-align: center;
+        margin-top: 32px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 15px 28px;
+        background: #e8c3c0;
+        color: #573630;
+        text-decoration: none;
+        border: 1px solid #c99590;
+        border-radius: 30px;
+        font-size: 15px;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 25px;
+        color: #b0847d;
+        font-size: 11px;
+        letter-spacing: 2px;
     }
 </style>
 </head>
@@ -74,15 +156,25 @@
 
 <div class="page">
 
-    <div class="small">Chapter One</div>
+    <div class="header">
 
-    <h1>Two years of us</h1>
+        <div class="small">Chapter One</div>
 
-    <div class="heart">♡</div>
+        <div class="line"></div>
+
+        <h1>Two years of us</h1>
+
+        <div class="subtitle">
+            And somehow, I'd choose you all over again.
+        </div>
+
+        <div class="decor">♡ &nbsp; ✦ &nbsp; ♡</div>
+
+    </div>
 
     <div class="letter">
 
-        <p>
+        <p class="opening">
             Hemin,
         </p>
 
@@ -95,9 +187,13 @@
         <p>
             And I still light up whenever someone asks me how we met.
             I will very, very happily tell them the entire story, from
-            the very beginning, with all the little details. I don't
-            think I will ever get bored of telling that story.
+            the very beginning, with all the little details.
         </p>
+
+        <div class="highlight">
+            I don't think I will ever get bored<br>
+            of telling our story.
+        </div>
 
         <p>
             In fact, I will shamelessly take the credit for our
@@ -113,8 +209,8 @@
         <p>
             I don't think I have spent a single day since our first
             meeting without thinking about you in some way. Somehow,
-            without even realizing when it happened, you became such
-            a huge part of my everyday life.
+            without even realizing when it happened, you became such a
+            huge part of my everyday life.
         </p>
 
         <p>
@@ -140,8 +236,8 @@
 
         <p>
             And until we get there, I'll keep choosing you, loving you,
-            missing you, annoying you, and very proudly telling everyone
-            the story of how we met.
+            missing you, annoying you, and very proudly telling
+            everyone the story of how we met.
         </p>
 
         <p>
@@ -152,21 +248,17 @@
             And I hope we get to keep adding chapters to it for a very,
             very long time. ♡
         </p>
-       <div style="text-align:center; margin-top:35px;">
-    <a href="cuppy-momo.html"
-       style="
-       display:inline-block;
-       padding:15px 30px;
-       background:#e8c3c0;
-       color:#573630;
-       text-decoration:none;
-       border-radius:30px;
-       font-family:Georgia, 'Times New Roman', serif;
-       font-size:16px;">
-       There's something you need to see ♡
-    </a>
-       </div>
 
+    </div>
+
+    <div class="button-wrap">
+        <a href="cuppy-momo.html" class="button">
+            There's something you need to see ♡
+        </a>
+    </div>
+
+    <div class="footer">
+        chapter one · us
     </div>
 
 </div>
