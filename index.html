@@ -14,67 +14,138 @@
     body {
         margin: 0;
         min-height: 100vh;
-        background: #fdf5ef;
+        background:
+            radial-gradient(circle at 15% 15%, #f7dfe0 0, transparent 28%),
+            radial-gradient(circle at 85% 85%, #f1d4ce 0, transparent 30%),
+            #fdf5ef;
         color: #5b3b35;
         font-family: Georgia, "Times New Roman", serif;
         display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
+        overflow: hidden;
     }
 
     .page {
         width: 100%;
         max-width: 430px;
         min-height: 100vh;
-        padding: 40px 28px;
+        padding: 35px 25px;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
+    .card {
+        width: 100%;
+        padding: 55px 28px;
+        text-align: center;
+        background: rgba(255, 250, 246, 0.88);
+        border: 1px solid #d9aaa5;
+        border-radius: 4px;
+        position: relative;
+        box-shadow: 0 15px 45px rgba(91, 59, 53, 0.12);
+    }
+
+    .card::before,
+    .card::after {
+        content: "✦";
+        position: absolute;
+        color: #c98989;
+        font-size: 18px;
+    }
+
+    .card::before {
+        top: 18px;
+        left: 20px;
+    }
+
+    .card::after {
+        bottom: 18px;
+        right: 20px;
+    }
+
+    .corner {
+        position: absolute;
+        color: #d5a09c;
+        font-size: 14px;
+    }
+
+    .top-right {
+        top: 18px;
+        right: 20px;
+    }
+
+    .bottom-left {
+        bottom: 18px;
+        left: 20px;
+    }
+
     .small {
-        font-size: 13px;
-        letter-spacing: 3px;
+        font-size: 11px;
+        letter-spacing: 4px;
         text-transform: uppercase;
         color: #9b6f68;
         margin-bottom: 25px;
     }
 
+    .line {
+        width: 55px;
+        height: 1px;
+        background: #cfa09a;
+        margin: 0 auto 25px;
+    }
+
     h1 {
-        font-size: 48px;
+        font-size: 52px;
         font-weight: normal;
-        margin: 0 0 18px;
+        margin: 0 0 12px;
         color: #573630;
+    }
+
+    .subtitle {
+        font-size: 17px;
+        font-style: italic;
+        color: #8a625b;
+        line-height: 1.7;
+        margin-bottom: 25px;
     }
 
     .heart {
         color: #c98989;
-        font-size: 24px;
-        margin-bottom: 25px;
+        font-size: 25px;
+        margin-bottom: 28px;
     }
 
-    p {
-        font-size: 18px;
-        line-height: 1.7;
-        margin: 0 0 35px;
+    .message {
+        font-size: 15px;
+        line-height: 1.8;
         color: #76534c;
+        margin-bottom: 30px;
     }
 
-    button {
-        border: 1px solid #b9857d;
+    .button {
+        display: inline-block;
+        padding: 15px 36px;
         background: #e8c3c0;
         color: #573630;
-        padding: 15px 35px;
+        text-decoration: none;
+        border: 1px solid #c99590;
         border-radius: 30px;
-        font-family: Georgia, "Times New Roman", serif;
         font-size: 16px;
-        cursor: pointer;
+        transition: 0.3s ease;
     }
 
-    button:hover {
+    .button:hover {
         background: #dfb2ae;
+        transform: translateY(-2px);
+    }
+
+    .bottom-text {
+        margin-top: 28px;
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: #b0847d;
     }
 </style>
 </head>
@@ -83,18 +154,39 @@
 
 <div class="page">
 
-    <div class="small">A little something for you</div>
+    <div class="card">
 
-    <h1>For Hemin</h1>
+        <div class="corner top-right">♡</div>
+        <div class="corner bottom-left">♡</div>
 
-    <div class="heart">♡</div>
+        <div class="small">A little something for you</div>
 
-    <p>
-        Two years, countless memories,<br>
-        and somehow you still feel like my favourite person.
-    </p>
+        <div class="line"></div>
 
-    <button onclick="window.location.href='story.html'">Open ♡</button>
+        <h1>For Hemin</h1>
+
+        <div class="subtitle">
+            A tiny corner of the internet<br>
+            that belongs entirely to us.
+        </div>
+
+        <div class="heart">♡</div>
+
+        <div class="message">
+            Two years, countless memories,<br>
+            and somehow you still feel like<br>
+            my favourite person.
+        </div>
+
+        <a href="story.html" class="button">
+            Open ♡
+        </a>
+
+        <div class="bottom-text">
+            made with love · iddi
+        </div>
+
+    </div>
 
 </div>
 
