@@ -13,58 +13,240 @@
 
     body {
         margin: 0;
-        background: #fdf5ef;
+        min-height: 100vh;
+        background:
+            radial-gradient(circle at 10% 15%, #f5dadd 0, transparent 25%),
+            radial-gradient(circle at 90% 85%, #f2d8d0 0, transparent 28%),
+            #fdf5ef;
         color: #5b3b35;
         font-family: Georgia, "Times New Roman", serif;
-        text-align: center;
     }
 
     .page {
         max-width: 430px;
         min-height: 100vh;
         margin: auto;
-        padding: 70px 28px;
+        padding: 45px 20px;
+    }
+
+    /* ---------------- ENVELOPE ---------------- */
+
+    .envelope-section {
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .small {
-        font-size: 12px;
-        letter-spacing: 3px;
+        font-size: 11px;
+        letter-spacing: 4px;
         text-transform: uppercase;
         color: #9b6f68;
-        margin-bottom: 22px;
+        margin-bottom: 18px;
     }
 
-    h1 {
-        font-size: 38px;
-        font-weight: normal;
+    .intro {
+        font-size: 18px;
+        font-style: italic;
+        color: #76534c;
+        line-height: 1.6;
+        margin-bottom: 38px;
+    }
+
+    .envelope {
+        width: 330px;
+        max-width: 90vw;
+        height: 220px;
+        position: relative;
+        cursor: pointer;
+        perspective: 900px;
+    }
+
+    .envelope-back {
+        position: absolute;
+        inset: 0;
+        background: #ead0c9;
+        border: 1px solid #c99d96;
+        box-shadow: 0 18px 45px rgba(91,59,53,0.18);
+        border-radius: 3px;
+    }
+
+    .letter-preview {
+        position: absolute;
+        width: 82%;
+        height: 82%;
+        left: 9%;
+        bottom: 3%;
+        background: #fffaf6;
+        border: 1px solid #e0c5bd;
+        z-index: 2;
+        transition: transform 1s ease;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(91,59,53,0.08);
+    }
+
+    .letter-preview-text {
+        font-size: 13px;
+        color: #8a625b;
+        line-height: 1.7;
+    }
+
+    .letter-preview-title {
+        font-size: 18px;
         color: #573630;
-        margin: 0 0 15px;
+        margin-bottom: 10px;
+        font-style: italic;
     }
 
-    .heart {
-        color: #c98989;
-        font-size: 25px;
+    .flap {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 165px solid transparent;
+        border-right: 165px solid transparent;
+        border-top: 125px solid #e3c4bd;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        transform-origin: top center;
+        transition: transform 1s ease;
+        filter: drop-shadow(0 2px 1px rgba(91,59,53,0.08));
+    }
+
+    .bottom-fold {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        overflow: hidden;
+    }
+
+    .bottom-fold::before {
+        content: "";
+        position: absolute;
+        width: 240px;
+        height: 240px;
+        background: #e8cbc4;
+        border: 1px solid #c99d96;
+        transform: rotate(45deg);
+        left: 45px;
+        top: 105px;
+    }
+
+    .seal {
+        position: absolute;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: #c98989;
+        color: #fffaf6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 23px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 6;
+        box-shadow: 0 4px 12px rgba(91,59,53,0.18);
+        transition: opacity 0.5s ease;
+    }
+
+    .click-text {
+        margin-top: 28px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: #9b6f68;
+        text-transform: uppercase;
+    }
+
+    /* ---------------- OPEN STATE ---------------- */
+
+    .envelope.open .flap {
+        transform: rotateX(180deg);
+        z-index: 1;
+    }
+
+    .envelope.open .letter-preview {
+        transform: translateY(-145px);
+        z-index: 5;
+    }
+
+    .envelope.open .seal {
+        opacity: 0;
+    }
+
+    .envelope.open {
+        margin-bottom: 145px;
+    }
+
+    /* ---------------- LETTER ---------------- */
+
+    .full-letter {
+        display: none;
+        background: #fffaf6;
+        border: 1px solid #e0c0b9;
+        padding: 35px 25px;
+        position: relative;
+        box-shadow: 0 15px 40px rgba(91,59,53,0.12);
+        animation: fadeIn 1s ease;
+    }
+
+    .full-letter::before {
+        content: "♡";
+        position: absolute;
+        top: 15px;
+        right: 18px;
+        color: #d5a09c;
+        font-size: 15px;
+    }
+
+    .full-letter::after {
+        content: "✦";
+        position: absolute;
+        bottom: 15px;
+        left: 18px;
+        color: #d5a09c;
+        font-size: 13px;
+    }
+
+    .full-letter.show {
+        display: block;
+    }
+
+    .letter-heading {
+        text-align: center;
         margin-bottom: 30px;
     }
 
-    .letter {
-        background: #fffaf6;
-        padding: 30px 24px;
-        border-radius: 18px;
-        box-shadow: 0 8px 30px rgba(91,59,53,0.08);
-        text-align: left;
+    .letter-heading .tiny {
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #9b6f68;
+        margin-bottom: 12px;
+    }
+
+    .letter-heading h1 {
+        font-size: 34px;
+        font-weight: normal;
+        color: #573630;
+        margin: 0;
+    }
+
+    .letter-heading .heart {
+        color: #c98989;
+        font-size: 22px;
+        margin-top: 12px;
     }
 
     p {
-        font-size: 17px;
-        line-height: 1.8;
+        font-size: 16.5px;
+        line-height: 1.85;
         color: #76534c;
         margin: 0 0 21px;
-    }
-
-    .quote {
-        font-style: italic;
-        color: #6d4842;
     }
 
     .bold {
@@ -72,21 +254,78 @@
         color: #573630;
     }
 
+    .quote {
+        font-style: italic;
+        color: #6d4842;
+        text-align: center;
+        padding: 10px 5px;
+    }
+
     .ending {
         text-align: center;
         margin-top: 30px;
         font-style: italic;
+        color: #704b45;
+    }
+
+    .final-button {
+        text-align: center;
+        margin-top: 35px;
     }
 
     .button {
         display: inline-block;
-        margin-top: 32px;
         padding: 15px 30px;
         background: #e8c3c0;
         color: #573630;
         text-decoration: none;
+        border: 1px solid #c99590;
         border-radius: 30px;
-        font-size: 16px;
+        font-size: 15px;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 10px;
+        letter-spacing: 3px;
+        color: #b0847d;
+        text-transform: uppercase;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 360px) {
+        .envelope {
+            width: 290px;
+            height: 195px;
+        }
+
+        .flap {
+            border-left-width: 145px;
+            border-right-width: 145px;
+            border-top-width: 110px;
+        }
+
+        .bottom-fold::before {
+            width: 210px;
+            height: 210px;
+            left: 40px;
+            top: 90px;
+        }
+
+        .full-letter {
+            padding: 30px 20px;
+        }
     }
 </style>
 </head>
@@ -95,13 +334,69 @@
 
 <div class="page">
 
-    <div class="small">Just for you</div>
+    <!-- ENVELOPE -->
 
-    <h1>Dear Hemin</h1>
+    <section class="envelope-section">
 
-    <div class="heart">♡</div>
+        <div class="small">
+            Just for you
+        </div>
 
-    <div class="letter">
+        <div class="intro">
+            I wrote you something...<br>
+            but you'll have to open it yourself.
+        </div>
+
+        <div class="envelope" id="envelope" onclick="openEnvelope()">
+
+            <div class="envelope-back"></div>
+
+            <div class="letter-preview">
+                <div class="letter-preview-title">
+                    Dear Hemin,
+                </div>
+
+                <div class="letter-preview-text">
+                    There are a few things<br>
+                    I really wanted to tell you...
+                </div>
+            </div>
+
+            <div class="flap"></div>
+
+            <div class="bottom-fold"></div>
+
+            <div class="seal">
+                ♡
+            </div>
+
+        </div>
+
+        <div class="click-text">
+            Tap the envelope to open
+        </div>
+
+    </section>
+
+
+    <!-- FULL LETTER -->
+
+    <section class="full-letter" id="fullLetter">
+
+        <div class="letter-heading">
+
+            <div class="tiny">
+                A letter for you
+            </div>
+
+            <h1>Dear Hemin</h1>
+
+            <div class="heart">
+                ♡
+            </div>
+
+        </div>
+
 
         <p class="bold">
             And finally, happiest birthday, my love. ♡
@@ -253,13 +548,40 @@
             Iddi
         </p>
 
-    </div>
+        <div class="final-button">
+            <a href="birthday.html" class="button">
+                One last thing...
+            </a>
+        </div>
 
-    <a href="birthday.html" class="button">
-        One last thing...
-    </a>
+    </section>
 
 </div>
+
+
+<script>
+
+function openEnvelope() {
+
+    const envelope = document.getElementById("envelope");
+    const letter = document.getElementById("fullLetter");
+
+    envelope.classList.add("open");
+
+    setTimeout(function() {
+
+        letter.classList.add("show");
+
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }, 1100);
+
+}
+
+</script>
 
 </body>
 </html>
